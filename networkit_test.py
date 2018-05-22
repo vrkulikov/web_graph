@@ -1,3 +1,8 @@
 import networkit as nk
-g = nk.generators.ErdosRenyiGenerator(1000,0.05).generate()
+import networkx
+g = nk.generators.ErdosRenyiGenerator(10000, 0.1).generate()
 nk.overview(g)
+G = nk.distance.Diameter(g)
+G.run()
+diam = G.getDiameter()
+print(diam)
